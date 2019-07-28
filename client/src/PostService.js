@@ -1,6 +1,8 @@
 import axios from "axios";
 
 const url = "http://localhost:8000/api/items/";
+const register = "http://localhost:8000/api/register";
+const login = "http://localhost:8000/api/login";
 
 class PostService {
   //getItems
@@ -31,6 +33,13 @@ class PostService {
   // take url, add id, make axios delete call
   static deleteItem(id) {
     return axios.delete(`${url}${id}`);
+  }
+
+  static register(credentials) {
+    return axios.post(register, credentials);
+  }
+  static login(credentials) {
+    return axios.post(login, credentials);
   }
 }
 
